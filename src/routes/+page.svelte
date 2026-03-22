@@ -2,6 +2,7 @@
 	import Hero from '$lib/components/hero.svelte';
 	import Section from '$lib/components/section.svelte';
 	import CardsContainer from '$lib/components/jams/cards-container.svelte';
+	import Card from '$lib/components/card.svelte';
 
 	const jamCards = [
 		{
@@ -40,13 +41,41 @@
 	</div>
 </Hero>
 
-<div id="content" class="main-content flex flex-col p-4 pb-16">
+<div id="content" class="main-content flex flex-col p-4 pb-4">
 	<Section>
 		<div class="flex flex-col">
-			<h1 class="text-xl">Game Jams</h1>
-			<h1 class="text-white/75">Blablabla</h1>
+			<h1 class="text-xl">Our Game Jams</h1>
+			<p class="text-white/75">Blablabla</p>
 		</div>
 		<CardsContainer cards={jamCards} />
+	</Section>
+
+	<Section>
+		<div class="flex flex-col">
+			<h1 class="text-xl">Game Jams we attend</h1>
+			<p class="mb-2 text-white/75">Blablabla, Nordic</p>
+			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+				<Card link="https://itch.io/jam/nordic-game-jam-2025">
+					<h1 class="text-xl font-bold">Nordic Game Jam 2025</h1>
+					<p>We attended Nordic Game Jam 2025 with over 20 of our schools students</p>
+					<img
+						src="https://img.itch.zone/aW1hZ2UyL2phbS80MDEyMTEvMjA1MTM1NTcucG5n/original/nrjGrm.png"
+						alt="Nordic 2025 logo"
+					/>
+				</Card>
+				<Card link="https://itch.io/jam/nordic-game-jam-2026">
+					<h1 class="text-xl font-bold">Nordic Game Jam 2026</h1>
+					<p>
+						We attended Nordic Game Jam 2026 with over 20 of our schools students AND an entire
+						seperate class of students
+					</p>
+					<img
+						src="https://images.squarespace-cdn.com/content/v1/61534224f00322554fd63fdf/a9f37d55-2ac4-485b-a7dd-20331c1fa71f/Logo+1.png"
+						alt="Nordic 2026 logo"
+					/>
+				</Card>
+			</div>
+		</div>
 	</Section>
 </div>
 
