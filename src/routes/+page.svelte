@@ -1,5 +1,22 @@
 <script lang="ts">
 	import Hero from '$lib/components/hero.svelte';
+	import Section from '$lib/components/section.svelte';
+	import CardsContainer from '$lib/components/jams/cards-container.svelte';
+
+	const jamCards = [
+		{
+			year: 'Mar 2025',
+			image: '/index/hero_1.jpeg',
+			description:
+				'Future Game Makers Jam 2025: "Two Buttons", A game jam held between 3 different schools with 30+ contestants'
+		},
+		{
+			year: 'Nov 2025',
+			image: '/index/hero_2.jpeg',
+			description:
+				'KMG Game Jam & LAN: "To Be...", A game jame AND LAN party with more than 30 people joining in for the fun!'
+		}
+	];
 </script>
 
 <Hero>
@@ -23,36 +40,14 @@
 	</div>
 </Hero>
 
-<div class="main-content flex flex-col p-2">
-	<h1 class="text-5xl">WOWSERS!</h1>
-
-	<div class="flex justify-center">
-		<img src="/regular_logo.svg" alt="KBH Gamedesign Forening logo" class="w-64 md:w-80" />
-	</div>
-	<div class="flex justify-center">
-		<img src="/regular_logo.svg" alt="KBH Gamedesign Forening logo" class="w-64 md:w-80" />
-	</div>
-	<div class="flex justify-center">
-		<img src="/regular_logo.svg" alt="KBH Gamedesign Forening logo" class="w-64 md:w-80" />
-	</div>
-	<div class="flex justify-center">
-		<img src="/regular_logo.svg" alt="KBH Gamedesign Forening logo" class="w-64 md:w-80" />
-	</div>
-	<div class="flex justify-center">
-		<img src="/regular_logo.svg" alt="KBH Gamedesign Forening logo" class="w-64 md:w-80" />
-	</div>
-	<div class="flex justify-center">
-		<img src="/regular_logo.svg" alt="KBH Gamedesign Forening logo" class="w-64 md:w-80" />
-	</div>
-	<div class="flex justify-center">
-		<img src="/regular_logo.svg" alt="KBH Gamedesign Forening logo" class="w-64 md:w-80" />
-	</div>
-	<div class="flex justify-center">
-		<img src="/regular_logo.svg" alt="KBH Gamedesign Forening logo" class="w-64 md:w-80" />
-	</div>
-	<div id="resources" class="flex justify-center">
-		<img src="/regular_logo.svg" alt="KBH Gamedesign Forening logo" class="w-64 md:w-80" />
-	</div>
+<div id="content" class="main-content flex flex-col p-4 pb-16">
+	<Section>
+		<div class="flex flex-col">
+			<h1 class="text-xl">Game Jams</h1>
+			<h1 class="text-white/75">Blablabla</h1>
+		</div>
+		<CardsContainer cards={jamCards} />
+	</Section>
 </div>
 
 <style>

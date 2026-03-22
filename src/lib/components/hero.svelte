@@ -5,7 +5,7 @@
 
 	const totalImages = 13;
 	let imageIndex = $state(Math.floor(Math.random() * totalImages) + 1);
-	let imageSrc = $derived(`/img/hero_${imageIndex}.jpeg`);
+	let imageSrc = $derived(`/index/hero_${imageIndex}.jpeg`);
 
 	// Preload adjacent images for smooth transitions
 	let prevIndex = $derived(imageIndex <= 1 ? totalImages : imageIndex - 1);
@@ -17,7 +17,7 @@
 			const link = document.createElement('link');
 			link.rel = 'preload';
 			link.as = 'image';
-			link.href = `/img/hero_${i}.jpeg`;
+			link.href = `/index/hero_${i}.jpeg`;
 			document.head.appendChild(link);
 		}
 	});
@@ -48,7 +48,7 @@
 </script>
 
 <svelte:head>
-	<link rel="preload" as="image" href={`/img/hero_${imageIndex}.jpeg`} fetchpriority="high" />
+	<link rel="preload" as="image" href={`/index/hero_${imageIndex}.jpeg`} fetchpriority="high" />
 </svelte:head>
 
 <!-- svelte-ignore a11y_no_static_element_interactions -->
@@ -92,9 +92,8 @@
 
 		<a
 			class="absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center gap-1 rounded-xl bg-rose-800/75 px-4 py-2 text-center text-white"
-			href="#resources"
+			href="#content"
 		>
-			<span class="text-sm font-medium">Resurser</span>
 			<img src="/down.svg" alt="Scroll down" class="h-6 w-6 opacity-80" />
 		</a>
 	</div>
