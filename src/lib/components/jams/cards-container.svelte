@@ -21,6 +21,14 @@
 		return -totalWidth / 2 + step * index;
 	}
 
+	let cardHeight = $state(0);
+
+	function getMaxTranslateY(total: number): number {
+		if (total === 1) return 0;
+		const spread = Math.min(total - 1, 5) * 8;
+		return (spread / 2) * 1.5;
+	}
+
 	function getTranslateY(index: number, total: number): number {
 		if (total === 1) return 0;
 		const rotation = getRotation(index, total);
@@ -28,7 +36,10 @@
 	}
 </script>
 
-<div class="relative flex justify-center items-center min-h-[300px] py-5">
+<div
+	class="relative -mb-12 flex items-center justify-center py-5"
+	style:height="{cardHeight + getMaxTranslateY(cards.length) + 40}px"
+>
 	{#each cards as card, i}
 		<div
 			class="fan-card"
@@ -36,8 +47,14 @@
 			style:--ty="{getTranslateY(i, cards.length)}px"
 			style:--rot="{getRotation(i, cards.length)}deg"
 			style:z-index={i}
+			bind:clientHeight={cardHeight}
 		>
-			<JamCard year={card.year} image={card.image} description={card.description} link={card.link} />
+			<JamCard
+				year={card.year}
+				image={card.image}
+				description={card.description}
+				link={card.link}
+			/>
 		</div>
 	{/each}
 </div>
@@ -47,7 +64,9 @@
 		position: absolute;
 		translate: var(--tx) var(--ty);
 		rotate: var(--rot);
-		transition: translate 0.4s ease, rotate 0.4s ease;
+		transition:
+			translate 0.4s ease,
+			rotate 0.4s ease;
 		transform-origin: center center;
 	}
 
