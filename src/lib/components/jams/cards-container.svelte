@@ -1,9 +1,11 @@
 <script lang="ts">
 	import JamCard from './jam-card.svelte';
+	import Card from '$lib/components/card.svelte';
+	import { isMobile } from '$lib';
 
-	type Card = { year: string; image: string; description: string; link?: string };
+	type CardData = { year: string; image: string; description: string; link?: string };
 
-	let { cards }: { cards: Card[] } = $props();
+	let { cards }: { cards: CardData[] } = $props();
 
 	function getRotation(index: number, total: number): number {
 		if (total === 1) return 0;
@@ -36,28 +38,42 @@
 	}
 </script>
 
-<div
-	class="relative -mb-12 flex items-center justify-center py-5"
-	style:height="{cardHeight + getMaxTranslateY(cards.length) + 40}px"
->
-	{#each cards as card, i}
-		<div
-			class="fan-card"
-			style:--tx="{getTranslateX(i, cards.length)}vw"
-			style:--ty="{getTranslateY(i, cards.length)}px"
-			style:--rot="{getRotation(i, cards.length)}deg"
-			style:z-index={i}
-			bind:clientHeight={cardHeight}
-		>
-			<JamCard
-				year={card.year}
-				image={card.image}
-				description={card.description}
-				link={card.link}
-			/>
-		</div>
-	{/each}
-</div>
+{#if isMobile}
+	<div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+		{#each cards as card, i}
+			<Card link={card.link ?? ''}>
+				<h1 class="text-xl font-bold">{card.year}</h1>
+				<p>{card.description}</p>
+				<div class="flex grow flex-col justify-center">
+					<img class="rounded-lg" src={card.image ?? ''} alt="Nordic 2025 logo" />
+				</div>
+			</Card>
+		{/each}
+	</div>
+{:else}
+	<div
+		class="relative -mb-12 flex items-center justify-center py-5"
+		style:height="{cardHeight + getMaxTranslateY(cards.length) + 40}px"
+	>
+		{#each cards as card, i}
+			<div
+				class="fan-card"
+				style:--tx="{getTranslateX(i, cards.length)}vw"
+				style:--ty="{getTranslateY(i, cards.length)}px"
+				style:--rot="{getRotation(i, cards.length)}deg"
+				style:z-index={i}
+				bind:clientHeight={cardHeight}
+			>
+				<JamCard
+					year={card.year}
+					image={card.image}
+					description={card.description}
+					link={card.link}
+				/>
+			</div>
+		{/each}
+	</div>
+{/if}
 
 <style>
 	.fan-card {

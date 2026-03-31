@@ -36,7 +36,7 @@
 		</div>
 
 		<div class="flex justify-center">
-			<img src="/regular_logo.svg" alt="KBH Gamedesign Forening logo" class="w-64 md:w-80" />
+			<img src="/logo.svg" alt="KBH Gamedesign Forening logo" class="w-64 md:w-80" />
 		</div>
 	</div>
 </Hero>
