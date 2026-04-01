@@ -5,7 +5,6 @@
 </script>
 
 <svelte:head>
-	<title>KBH GameDesign Forening</title>
 	<link rel="icon" href="/logo.svg" />
 </svelte:head>
 

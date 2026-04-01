@@ -5,7 +5,7 @@
 </script>
 
 <a
-	href={link ?? '#'}
+	href={link ?? ''}
 	class="mt-2.5 flex shrink flex-col rounded-xl bg-white p-4 text-black transition-all duration-300 ease-in-out hover:mt-0 hover:mb-2.5"
 >
 	{@render children()}

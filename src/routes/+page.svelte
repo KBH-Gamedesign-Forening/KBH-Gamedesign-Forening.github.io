@@ -3,22 +3,11 @@
 	import Section from '$lib/components/section.svelte';
 	import CardsContainer from '$lib/components/jams/cards-container.svelte';
 	import Card from '$lib/components/card.svelte';
-
-	const jamCards = [
-		{
-			year: 'Mar 2025',
-			image: '/index/hero_1.jpeg',
-			description:
-				'Future Game Makers Jam 2025: "Two Buttons", A game jam held between 3 different schools with 30+ contestants'
-		},
-		{
-			year: 'Nov 2025',
-			image: '/index/hero_2.jpeg',
-			description:
-				'KMG Game Jam & LAN: "To Be...", A game jame AND LAN party with more than 30 people joining in for the fun!'
-		}
-	];
 </script>
+
+<svelte:head>
+	<title>KBH GameDesign Forening</title>
+</svelte:head>
 
 <Hero>
 	<div class="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
@@ -45,19 +34,23 @@
 	<Section>
 		<div class="flex flex-col">
 			<h1 class="text-xl">Our Game Jams</h1>
-			<p class="text-white/75">Blablabla</p>
+			<p class="text-white/75">
+				Holdt to gange om året, mange teams, venskaber og spil er blevet formet her.
+			</p>
 		</div>
-		<CardsContainer cards={jamCards} />
+		<CardsContainer />
 	</Section>
 
 	<Section>
 		<div class="flex flex-col">
-			<h1 class="text-xl">Game Jams we attend</h1>
-			<p class="mb-2 text-white/75">Blablabla, Nordic</p>
+			<h1 class="text-xl">Game Jams vi er med til!</h1>
+			<p class="mb-2 text-white/75">
+				En utrolig mulighed for at lære fra professionelle, lave spil og at have det sjovt!
+			</p>
 			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
 				<Card link="https://itch.io/jam/nordic-game-jam-2025">
 					<h1 class="text-xl font-bold">Nordic Game Jam 2025</h1>
-					<p>We attended Nordic Game Jam 2025 with over 20 of our schools students</p>
+					<p>Vi tog til Nordic Game Jam 2025 med over 20 af skolens elever.</p>
 					<div class="flex grow flex-col justify-center">
 						<img
 							class="rounded-lg"
@@ -68,10 +61,7 @@
 				</Card>
 				<Card link="https://itch.io/jam/nordic-game-jam-2026">
 					<h1 class="text-xl font-bold">Nordic Game Jam 2026</h1>
-					<p>
-						We attended Nordic Game Jam 2026 with over 20 of our schools students AND an entire
-						seperate class of students
-					</p>
+					<p>Vi tog til Nordic Game Jam 2026 med over 20 af skolens elever OG en hel klasse.</p>
 					<div class="flex grow flex-col justify-center">
 						<img
 							class="rounded-lg"
@@ -84,12 +74,3 @@
 		</div>
 	</Section>
 </div>
-
-<style>
-	.main-content {
-		margin-top: -25px;
-		background-color: white;
-		border-top-left-radius: 15px;
-		border-top-right-radius: 15px;
-	}
-</style>

@@ -1,11 +1,22 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 
-	let { children }: { children: Snippet } = $props();
+	let {
+		children,
+		totalImages = 13,
+		imagePath = '/index/hero_{}.jpeg'
+	}: {
+		children: Snippet;
+		totalImages?: number;
+		imagePath?: string;
+	} = $props();
 
-	const totalImages = 13;
+	function resolveImage(i: number) {
+		return imagePath.replace('{}', String(i));
+	}
+
 	let imageIndex = $state(Math.floor(Math.random() * totalImages) + 1);
-	let imageSrc = $derived(`/index/hero_${imageIndex}.jpeg`);
+	let imageSrc = $derived(resolveImage(imageIndex));
 
 	// Preload adjacent images for smooth transitions
 	let prevIndex = $derived(imageIndex <= 1 ? totalImages : imageIndex - 1);
@@ -17,7 +28,7 @@
 			const link = document.createElement('link');
 			link.rel = 'preload';
 			link.as = 'image';
-			link.href = `/index/hero_${i}.jpeg`;
+			link.href = resolveImage(i);
 			document.head.appendChild(link);
 		}
 	});
@@ -48,7 +59,7 @@
 </script>
 
 <svelte:head>
-	<link rel="preload" as="image" href={`/index/hero_${imageIndex}.jpeg`} fetchpriority="high" />
+	<link rel="preload" as="image" href={resolveImage(imageIndex)} fetchpriority="high" />
 </svelte:head>
 
 <!-- svelte-ignore a11y_no_static_element_interactions -->

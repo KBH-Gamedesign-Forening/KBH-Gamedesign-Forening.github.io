@@ -5,7 +5,22 @@
 
 	type CardData = { year: string; image: string; description: string; link?: string };
 
-	let { cards }: { cards: CardData[] } = $props();
+	const jamCards: CardData[] = [
+		{
+			year: 'Mar 2025',
+			image: '/index/hero_1.jpeg',
+			link: '/jams/mar_25',
+			description:
+				'Future Game Makers Jam 2025: "Two Buttons", A game jam held between 3 different schools with 30+ contestants'
+		},
+		{
+			year: 'Nov 2025',
+			image: '/index/hero_2.jpeg',
+			link: '/jams/nov_25',
+			description:
+				'KMG Game Jam & LAN: "To Be...", A game jame AND LAN party with more than 30 people joining in for the fun!'
+		}
+	];
 
 	function getRotation(index: number, total: number): number {
 		if (total === 1) return 0;
@@ -53,14 +68,14 @@
 {:else}
 	<div
 		class="relative -mb-12 flex items-center justify-center py-5"
-		style:height="{cardHeight + getMaxTranslateY(cards.length) + 40}px"
+		style:height="{cardHeight + getMaxTranslateY(jamCards.length) + 40}px"
 	>
-		{#each cards as card, i}
+		{#each jamCards as card, i}
 			<div
 				class="fan-card"
-				style:--tx="{getTranslateX(i, cards.length)}vw"
-				style:--ty="{getTranslateY(i, cards.length)}px"
-				style:--rot="{getRotation(i, cards.length)}deg"
+				style:--tx="{getTranslateX(i, jamCards.length)}vw"
+				style:--ty="{getTranslateY(i, jamCards.length)}px"
+				style:--rot="{getRotation(i, jamCards.length)}deg"
 				style:z-index={i}
 				bind:clientHeight={cardHeight}
 			>
