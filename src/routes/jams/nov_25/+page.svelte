@@ -10,7 +10,7 @@
 
 	console.log(data);
 
-	const TITLE = 'KMG Game Jam March 2025';
+	const TITLE = 'KMG Game Jam November 2025';
 </script>
 
 <header>
@@ -22,9 +22,9 @@
 		<div class="flex flex-col">
 			<h1 class="text-xl">{TITLE}</h1>
 			<p class="mb-2 text-white/75">
-				Det første af 2025's to Game Jams med themen "Two buttons" og over 10 spil spredt mellem 3
-				skoler der hver kårede mindst et vinder hold og en anden plads! Dette Jam endte med at forme
-				et spil studie og flere venskaber.
+				Det andet Game Jam af 2025 med themen "To be...", denne gang blev det blot kørt på vores
+				skole men vi kom stadig op på 4 hold der kæmpede om første pladsen desværre nåede kun 2 i
+				mål
 			</p>
 			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
 				{#each submissions as submission}
