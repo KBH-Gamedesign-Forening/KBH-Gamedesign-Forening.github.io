@@ -1,7 +1,7 @@
 <script lang="ts">
 	import JamCard from './jam-card.svelte';
 	import Card from '$lib/components/card.svelte';
-	import { isMobile } from '$lib';
+	import Device from 'svelte-device-info';
 
 	type CardData = { year: string; image: string; description: string; link?: string };
 
@@ -53,9 +53,9 @@
 	}
 </script>
 
-{#if isMobile}
+{#if Device.isMobile}
 	<div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-		{#each cards as card, i}
+		{#each jamCards as card, i}
 			<Card link={card.link ?? ''}>
 				<h1 class="text-xl font-bold">{card.year}</h1>
 				<p>{card.description}</p>
