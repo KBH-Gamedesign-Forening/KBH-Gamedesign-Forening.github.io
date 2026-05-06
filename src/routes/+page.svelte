@@ -3,6 +3,7 @@
 	import Section from '$lib/components/section.svelte';
 	import CardsContainer from '$lib/components/jams/cards-container.svelte';
 	import Card from '$lib/components/card.svelte';
+	import '@fortawesome/fontawesome-free/css/all.min.css';
 </script>
 
 <svelte:head>
@@ -24,8 +25,12 @@
 			</p>
 		</div>
 
-		<div class="flex justify-center">
+		<div class="flex h-full flex-col justify-between">
+			<div></div>
 			<img src="/logo.svg" alt="KBH Gamedesign Forening logo" class="w-64 md:w-80" />
+			<a href="#contact" class="text-center text-xl font-bold text-white">
+				<i class="fa-brands fa-discord"></i> Join vores Discord forneden!
+			</a>
 		</div>
 	</div>
 </Hero>
@@ -70,6 +75,37 @@
 						/>
 					</div>
 				</Card>
+			</div>
+		</div>
+	</Section>
+
+	<Section>
+		<div class="flex flex-col" id="contact">
+			<h1 class="text-xl">Kontakt</h1>
+			<p class="text-white/75">Spørgsmål? Eller lyst til at være en del af fælleskabet?</p>
+		</div>
+		<div class="grid grid-cols-2 gap-4">
+			<div class="flex flex-col gap-2">
+				<Card link="mailto:kbhgamedesign@gmail.com">
+					<h1 class="text-xl font-bold">Skriv til os på email!</h1>
+					<div class="flex w-full justify-center">
+						<img src="/email.svg" class="w-1/4" alt="" />
+					</div>
+				</Card>
+				<p class="text-xl"><b>Mail:</b> kbhgamedesign@gmail.com</p>
+			</div>
+			<div class="flex flex-col gap-2">
+				<Card link="https://discord.gg/aHrgH72aTw">
+					<h1 class="text-xl font-bold">Eller join vores Discord!</h1>
+					<div class="flex w-full justify-center">
+						<img src="/discord.svg" class="w-1/4" alt="" />
+					</div>
+				</Card>
+				<p class="text-xl">
+					<b>Link:</b>
+					<a class="underline" href="https://discord.gg/aHrgH72aTw">https://discord.gg/aHrgH72aTw</a
+					>
+				</p>
 			</div>
 		</div>
 	</Section>

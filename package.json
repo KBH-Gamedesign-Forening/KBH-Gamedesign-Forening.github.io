@@ -28,6 +28,9 @@
 		"vite": "^7.3.1"
 	},
 	"dependencies": {
+		"@fortawesome/fontawesome-free": "^7.2.0",
+		"@fortawesome/free-solid-svg-icons": "^7.2.0",
+		"fontawesome-svelte": "^3.0.0",
 		"svelte-device-info": "^1.0.6"
 	}
 }
