@@ -35,7 +35,7 @@
 	</div>
 </Hero>
 
-<div id="content" class="main-content flex flex-col p-4 pb-4">
+<div id="content" class="main-content flex flex-col p-4 pb-0">
 	<Section>
 		<div class="flex flex-col">
 			<h1 class="text-xl">Our Game Jams</h1>

@@ -1,9 +1,7 @@
 <script lang="ts">
-	import type { Snippet } from 'svelte';
-
-	let { children }: { children: Snippet } = $props();
+	let props = $props();
 </script>
 
-<div class="mb-4 overflow-hidden rounded-xl bg-rose-800/75 p-4 text-white">
-	{@render children()}
+<div {...props} class="{props.class} mb-4 overflow-hidden rounded-xl bg-rose-800/75 p-4 text-white">
+	{@render props.children()}
 </div>
